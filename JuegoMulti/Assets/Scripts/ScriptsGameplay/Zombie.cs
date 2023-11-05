@@ -6,11 +6,12 @@ public class Zombie : MonoBehaviour
 {
     [SerializeField] public float vidaActual;
     [SerializeField] GameObject player;
-    [SerializeField] float speed;
+    [SerializeField] public float speed;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("PersonajePrincipal");
+        Destroy(gameObject, 25f);
     }
 
     // Update is called once per frame
@@ -31,6 +32,7 @@ public class Zombie : MonoBehaviour
         vidaActual = vidaActual - dano;
         if (vidaActual<0)
         {
+            GameObject.Find("Spawner").GetComponent<Spawner>().enemigosActuales -= 1;
             GameObject.Find("GameManager").GetComponent<GameManager>().añadirPuntos(100);
             Destroy(gameObject);
         }

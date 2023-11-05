@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     void timeCount()
     {
-        puntos += 1;
+        puntos += 10;
         puntosUI.GetComponent<TextMeshProUGUI>().text = puntos.ToString();
     }
 
@@ -45,7 +45,10 @@ public class GameManager : MonoBehaviour
         puntosUI.GetComponent<TextMeshProUGUI>().text = puntos.ToString();
     }
 
-
+    public int getScore()
+    {
+        return puntos;
+    }
 
 
 }

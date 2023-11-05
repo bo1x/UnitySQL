@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     public Rigidbody rb;
     public Vector3 dirr;
     public GameObject enemigo;
+    public float bulletSpeed;
     // Start is called before the first frame update
     void Start()
     {

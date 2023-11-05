@@ -377,7 +377,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  altura: 15
+  altura: 16
+--- !u!1 &523551174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 523551176}
+  - component: {fileID: 523551175}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &523551175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523551174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e29619ee0d802c449b26cab5b384af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombi: {fileID: 6880841358994105455, guid: 37dcc19ce9648e040be67edb6b6635c5, type: 3}
+  player: {fileID: 1921543612}
+  enemigosActuales: 0
+  enemigosMaximos: 0
+  VelocidadEnemigos: 0
+  VidaEnemigos: 0
+  distanciaminima: 0
+--- !u!4 &523551176
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523551174}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 460.36444, y: 244.6861, z: -99.16594}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &625272403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -810,6 +861,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 820457512787573053, guid: f12a06c3bf1efcb47aa1eb97b42608dd,
+        type: 3}
+      propertyPath: "da\xF1o"
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 820457512787573053, guid: f12a06c3bf1efcb47aa1eb97b42608dd,
+        type: 3}
+      propertyPath: cadencia
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 820457512787573053, guid: f12a06c3bf1efcb47aa1eb97b42608dd,
+        type: 3}
+      propertyPath: WeaponRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175074725546562432, guid: f12a06c3bf1efcb47aa1eb97b42608dd,
+        type: 3}
+      propertyPath: "da\xF1o"
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175074725546562432, guid: f12a06c3bf1efcb47aa1eb97b42608dd,
+        type: 3}
+      propertyPath: WeaponRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2279587723637699883, guid: f12a06c3bf1efcb47aa1eb97b42608dd,
+        type: 3}
+      propertyPath: "da\xF1o"
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002081121602037200, guid: f12a06c3bf1efcb47aa1eb97b42608dd,
+        type: 3}
+      propertyPath: "da\xF1o"
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238301195860995943, guid: f12a06c3bf1efcb47aa1eb97b42608dd,
+        type: 3}
+      propertyPath: "da\xF1o"
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5186050583113345997, guid: f12a06c3bf1efcb47aa1eb97b42608dd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -864,6 +955,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PersonajePrincipal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8800968835900180978, guid: f12a06c3bf1efcb47aa1eb97b42608dd,
+        type: 3}
+      propertyPath: "da\xF1o"
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8800968835900180978, guid: f12a06c3bf1efcb47aa1eb97b42608dd,
+        type: 3}
+      propertyPath: WeaponRange
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2729,3 +2830,4 @@ SceneRoots:
   - {fileID: 1063928881}
   - {fileID: 24456881}
   - {fileID: 1361253373}
+  - {fileID: 523551176}

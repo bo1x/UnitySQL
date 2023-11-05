@@ -12,6 +12,7 @@ public class WeaponBehaviur : MonoBehaviour
     [SerializeField] GameObject Bala;
     private bool disparo;
     [SerializeField] float cadencia;
+    public int daño;
     // Start is called before the first frame update
     void Start()
     {
