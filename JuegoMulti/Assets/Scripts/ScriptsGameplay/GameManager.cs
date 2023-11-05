@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+
     [SerializeField] int vidas;
     [SerializeField] int puntos;
-    
+    public GameObject vidasUI;
+    public GameObject puntosUI;
+
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(time());
+
     }
 
     // Update is called once per frame
@@ -30,7 +36,13 @@ public class GameManager : MonoBehaviour
     void timeCount()
     {
         puntos += 1;
-        Debug.Log(puntos);
+        puntosUI.GetComponent<TextMeshProUGUI>().text = puntos.ToString();
+    }
+
+    public void añadirPuntos(int pointswapos)
+    {
+        puntos += pointswapos;
+        puntosUI.GetComponent<TextMeshProUGUI>().text = puntos.ToString();
     }
 
 

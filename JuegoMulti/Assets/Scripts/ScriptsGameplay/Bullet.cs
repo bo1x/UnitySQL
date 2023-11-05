@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+
+    
+
     public Rigidbody rb;
     public Vector3 dirr;
     public GameObject enemigo;
@@ -11,24 +14,27 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        if (enemigo)
+        {
+            transform.LookAt(enemigo.transform);
+
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         rb.velocity = dirr;
-        if (enemigo)
-        {
-            transform.LookAt(enemigo.transform);
-        }
+        
     }
 
      void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag== "Zombie")
         {
-            Destroy(other.gameObject.transform.parent.gameObject);
-            Destroy(transform.gameObject);
+            other.GetComponentInParent<Zombie>().Quitarvida(2);
+          //  Destroy(other.gameObject.transform.parent.gameObject);
+            Destroy(gameObject);
         }
     }
 }
