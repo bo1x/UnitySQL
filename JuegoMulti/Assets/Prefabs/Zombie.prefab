@@ -1659,6 +1659,7 @@ GameObject:
   - component: {fileID: 3663195590001489163}
   - component: {fileID: 4157952466004552383}
   - component: {fileID: 8158330038392712816}
+  - component: {fileID: 7941437033635902730}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Zombie
@@ -1752,6 +1753,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7941437033635902730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8407902445604293417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02dd6511cba83e643b47551a9613e23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8869423713049744775
 GameObject:
   m_ObjectHideFlags: 0

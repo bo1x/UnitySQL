@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraLookAt : MonoBehaviour
+public class ZombieCollider : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-    [SerializeField] float altura;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +13,14 @@ public class CameraLookAt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(player.transform.position.x,altura,player.transform.position.z);
+        
+    }
+
+     void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "bullet")
+        {
+            Debug.Log("Me Muero");
+        }    
     }
 }
