@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
+using TMPro;
+using UnityEngine.SceneManagement;
+using static UnityEngine.Rendering.DebugUI;
 
 // UnityWebRequest.Get example
 
@@ -9,44 +12,41 @@ using System.Collections;
 
 public class getweb : MonoBehaviour
 {
+
+    public GameObject usuario;
+    public GameObject contraseña;
+    public GameObject inputFieldError;
+    string user, pass;
+    string stringCheck;
+
     void Start()
     {
         // A correct website page.
         //StartCoroutine(GetRequest("http://localhost/ejemplosclase/login.php"));
         // StartCoroutine(Login("admin", "admin"));
-        StartCoroutine(CrearUsuario("alex", "123", "1"));
         // A non-existing page.
      //   StartCoroutine(GetRequest("https://error.html"));
     }
 
-    IEnumerator GetRequest(string uri)
+    public void LlamarLogin()
     {
-        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
-        {
-            // Request and wait for the desired page.
-            yield return webRequest.SendWebRequest();
-
-            string[] pages = uri.Split('/');
-            int page = pages.Length - 1;
-
-            switch (webRequest.result)
-            {
-                case UnityWebRequest.Result.ConnectionError:
-                case UnityWebRequest.Result.DataProcessingError:
-                    Debug.LogError(pages[page] + ": Error: " + webRequest.error);
-                    break;
-                case UnityWebRequest.Result.ProtocolError:
-                    Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
-                    break;
-                case UnityWebRequest.Result.Success:
-                    Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
-                    break;
-            }
-        }
+        user = usuario.GetComponent<TMP_InputField>().text.ToString();
+        pass = contraseña.GetComponent<TMP_InputField>().text.ToString();
+        StartCoroutine(Login(user,pass));
+        
+    }
+    public void LlamarCrearCuenta()
+    {
+        user = usuario.GetComponent<TMP_InputField>().text.ToString(); ;
+        pass = contraseña.GetComponent<TMP_InputField>().text.ToString(); ;
+        StartCoroutine(CrearUsuario(user, pass));
     }
 
     IEnumerator Login(string user,string pass)
     {
+
+       
+
         WWWForm form = new WWWForm();
         form.AddField("loginUsuario", user);
         form.AddField("loginCont", pass);
@@ -57,19 +57,39 @@ public class getweb : MonoBehaviour
         if (www.result != UnityWebRequest.Result.Success)
         {
             Debug.Log(www.error);
+            
         }
         else
         {
             Debug.Log(www.downloadHandler.text);
+            stringCheck = www.downloadHandler.text.ToString();
         }
+
+
+        if (stringCheck.Contains("777"))
+        {
+            PlayerPrefs.SetString("Usuario", user);
+            SceneManager.LoadScene(1);
+        }
+        if (stringCheck.Contains("666"))
+        {
+            inputFieldError.GetComponent<TextMeshProUGUI>().text = "Contraseña Erronea/Usuario";
+        }
+        if (stringCheck.Contains("555"))
+        {
+            inputFieldError.GetComponent<TextMeshProUGUI>().text = "Usuario Erroneo/Contraseña";
+        }
+
     }
 
-    IEnumerator CrearUsuario(string user, string pass,string admin)
+    IEnumerator CrearUsuario(string user, string pass)
     {
+
+        
+
         WWWForm form = new WWWForm();
         form.AddField("crearUsuario", user);
         form.AddField("crearPass", pass);
-        form.AddField("crearAdmin", admin);
 
         UnityWebRequest www = UnityWebRequest.Post("http://localhost/ejemplosClase/crearUsuario.php", form);
         yield return www.SendWebRequest();
@@ -81,6 +101,33 @@ public class getweb : MonoBehaviour
         else
         {
             Debug.Log(www.downloadHandler.text);
+            stringCheck = www.downloadHandler.text.ToString();
         }
+        if (stringCheck.Contains("111"))
+        {
+         
+            inputFieldError.GetComponent<TextMeshProUGUI>().text = "Usuario ya existe";
+        }
+        if (stringCheck.Contains("888"))
+        {
+            inputFieldError.GetComponent<TextMeshProUGUI>().text = "Usuario Creado";
+        }
+        Debug.Log("hello");
     }
+
+    /*
+     cREAR USER
+
+111 Usuario Ya existente
+
+888 Usuario Creado
+
+Login 
+
+777 lOGIN CORRECTO
+
+666 CONTRASEÑA INCORRECTA
+
+555 USUARIO NO EXISTE
+     */
 }

@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Login.unity
+    guid: b162f4e0496a8594dadb9c5afb5356f5
+  - enabled: 1
+    path: Assets/Scenes/VampireSurvivors.unity
+    guid: 8561f2566f333a148809a32421eb4610
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 293b74a091a7d4547bc43e2cf86c51b7
   m_configObjects: {}

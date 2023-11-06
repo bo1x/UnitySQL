@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(time());
+        vidasUI.GetComponent<TextMeshProUGUI>().text = vidas.ToString();
 
     }
 
@@ -53,9 +55,12 @@ public class GameManager : MonoBehaviour
     public void QuitarVidaPlayer()
     {
         vidas -= 1;
+        vidasUI.GetComponent<TextMeshProUGUI>().text = vidas.ToString();
         if (vidas <= 0)
         {
+            PlayerPrefs.SetString("Puntuacion", puntos.ToString());
             Debug.Log("ded");
+            SceneManager.LoadScene(2);
         }
         else
         {
