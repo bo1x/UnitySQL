@@ -182,4 +182,4 @@ MonoBehaviour:
   rb: {fileID: 0}
   dirr: {x: 0, y: 0, z: 0}
   enemigo: {fileID: 0}
-  bulletSpeed: 3
+  bulletSpeed: 1

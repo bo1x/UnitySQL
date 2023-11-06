@@ -50,5 +50,17 @@ public class GameManager : MonoBehaviour
         return puntos;
     }
 
+    public void QuitarVidaPlayer()
+    {
+        vidas -= 1;
+        if (vidas <= 0)
+        {
+            Debug.Log("ded");
+        }
+        else
+        {
+            Debug.Log("-1");
+        }
+    }
 
 }

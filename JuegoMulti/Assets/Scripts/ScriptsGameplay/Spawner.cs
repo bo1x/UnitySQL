@@ -39,6 +39,10 @@ public class Spawner : MonoBehaviour
         {
             VelocidadEnemigos = 4;
         }
+        if (VidaEnemigos < 1)
+        {
+            VidaEnemigos = 1;
+        }
         
         if (enemigosActuales<enemigosMaximos)
         {

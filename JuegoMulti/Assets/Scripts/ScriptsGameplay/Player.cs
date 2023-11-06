@@ -27,4 +27,6 @@ public class Player : MonoBehaviour
         transform.LookAt(new Vector3(horizontal+transform.position.x, 0, vertical+transform.position.z));
  
     }
+
+    
 }

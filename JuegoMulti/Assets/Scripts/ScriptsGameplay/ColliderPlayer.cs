@@ -20,7 +20,7 @@ public class ColliderPlayer : MonoBehaviour
     {
         if (other.gameObject.tag == "Zombie")
         {
-            Debug.Log("damage");
+            GameObject.Find("GameManager").GetComponent<GameManager>().QuitarVidaPlayer();
         }
     }
 }
