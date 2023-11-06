@@ -29,15 +29,15 @@ public class Spawner : MonoBehaviour
             enemigosMaximos = 150;
         }
          
-        VelocidadEnemigos = score / 500;
+        VelocidadEnemigos = score / 1000;
         VidaEnemigos = score / 1000;
         if (VelocidadEnemigos<1)
         {
             VelocidadEnemigos = 1;
         }
-        if (VelocidadEnemigos > 4)
+        if (VelocidadEnemigos > 4.5f)
         {
-            VelocidadEnemigos = 4;
+            VelocidadEnemigos = 4.5f;
         }
         if (VidaEnemigos < 1)
         {

@@ -12,6 +12,8 @@ public class Zombie : MonoBehaviour
     {
         player = GameObject.Find("PersonajePrincipal");
         Destroy(gameObject, 25f);
+        StartCoroutine(morir());
+        
     }
 
     // Update is called once per frame
@@ -36,5 +38,11 @@ public class Zombie : MonoBehaviour
             GameObject.Find("GameManager").GetComponent<GameManager>().añadirPuntos(100);
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator morir()
+    {
+        yield return new WaitForSeconds(24);
+        GameObject.Find("Spawner").GetComponent<Spawner>().enemigosActuales -= 1;
     }
 }
